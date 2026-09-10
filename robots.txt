@@ -1,5 +1,0 @@
-# ambs.co.nz — all crawlers welcome
-User-agent: *
-Allow: /
-
-Sitemap: https://ambs.co.nz/sitemap.xml
