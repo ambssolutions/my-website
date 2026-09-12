@@ -7,6 +7,12 @@
 <meta name="description" content="We solve your operational headaches with easy-to-use AI. Automation, websites, portals and dashboards for New Zealand businesses.">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="application-name" content="Ambs Solutions">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Ambs">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="mobile-web-app-capable" content="yes">
 <link rel="canonical" href="https://ambs.co.nz/">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F7F6F0">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0F1428">
@@ -52,6 +58,13 @@ img,svg{max-width:100%;display:block}
 a{color:inherit}
 button,select,input,textarea{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--kowhai);outline-offset:3px;border-radius:3px}
+/* a tap or a click should not leave a ring behind */
+:focus:not(:focus-visible){outline:none}
+/* Browsers treat a select as focus-visible whenever it has focus, so picking
+   a language with a finger left the yellow ring sitting there. The script
+   drops focus after a pointer-driven change; keyboard use keeps its ring. */
+.langselect.pointer-picked:focus,
+.langselect.pointer-picked:focus-visible{outline:none}
 
 h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.025em;line-height:1.02;margin:0}
 h1{font-size:clamp(2.35rem,6.6vw,4.6rem)}
@@ -429,7 +442,7 @@ html[data-theme="dark"] input,html[data-theme="dark"] select,html[data-theme="da
   .hdr-ico{width:32px;height:32px;margin-right:.1rem}
   .hdr-ico svg{width:15px;height:15px}
   .mark img{height:28px}
-  .langselect{font-size:.72rem;padding:.34em 1.6em .34em .6em;max-width:96px}
+  .langselect{font-size:.72rem;padding:.34em 1.6em .34em .6em;}
 }
 .bar-right{flex-wrap:nowrap;min-width:0}
 .drawer{position:relative;z-index:80}
@@ -810,7 +823,7 @@ a.foot-brand:hover .foot-logo{transform:translateY(-2px);transition:transform .1
 .trust .tcell p{color:rgba(18,51,0,.8)}
 html[data-theme="dark"] .trust{background:linear-gradient(160deg,#EFE6BC 0%,#D8E8B5 45%,#BCDCA9 100%)!important}
 
-/* ============ PASTEL PASS ============ */,
+/* ============ PASTEL PASS ============ */
 html:not([data-theme="dark"]){--paper:#F7F6F0}
 html:not([data-theme="dark"]) /* buttons: pastel greens,
 html:not([data-theme="dark"]) dark green text */
@@ -825,7 +838,7 @@ html:not([data-theme="dark"]) #sendbtn:hover{background:linear-gradient(180deg,#
 html:not([data-theme="dark"]) /* icon badges: pastel blue,
 html:not([data-theme="dark"]) deep blue glyphs */
 .cell-ico{background:linear-gradient(180deg,#C4DCF8,#93BBEB)!important;color:#1E3A6E!important}
-/* vision heading: pastel violet */,
+/* vision heading: pastel violet */
 html:not([data-theme="dark"]) #about h2{background:linear-gradient(180deg,#C9A2ED 0%,#A97BD9 62%,#8F63C9 100%)!important;
   -webkit-background-clip:text!important;background-clip:text!important;color:transparent!important}
 html:not([data-theme="dark"]) /* booking section: pastel lavender,
@@ -853,7 +866,7 @@ html:not([data-theme="dark"]) .foot-fine{color:rgba(30,35,60,.55);border-top-col
 html:not([data-theme="dark"]) .foot-brand .lg-word,
 html:not([data-theme="dark"]) .foot-brand .lg-word i{color:rgba(30,35,60,.8)}
 html:not([data-theme="dark"]) .foot-logo{box-shadow:0 10px 22px -12px rgba(30,35,60,.35),inset 0 2px 0 rgba(255,255,255,.9),inset 0 -3px 0 rgba(30,35,60,.1)}
-/* hero skies: pastel; text adapts per sky */,
+/* hero skies: pastel; text adapts per sky */
 html:not([data-theme="dark"]) .hero.sky-dawn h1,
 html:not([data-theme="dark"]) .hero.sky-day h1,
 html:not([data-theme="dark"]) .hero.sky-dusk h1{color:inherit}
@@ -870,7 +883,7 @@ html:not([data-theme="dark"]) .hero.sky-dusk .btn--ghost{
 html:not([data-theme="dark"]) .hero.sky-dawn .hero-note,
 html:not([data-theme="dark"]) .hero.sky-day .hero-note,
 html:not([data-theme="dark"]) .hero.sky-dusk .hero-note{color:rgba(20,30,60,.65)}
-/* rain drops need contrast on light skies */,
+/* rain drops need contrast on light skies */
 html:not([data-theme="dark"]) .hero.sky-dawn .wxfx.rain::before,
 html:not([data-theme="dark"]) .hero.sky-day .wxfx.rain::before,
 html:not([data-theme="dark"]) .hero.sky-dusk .wxfx.rain::before,
@@ -882,9 +895,9 @@ html:not([data-theme="dark"]) /* ============ PASTEL PASS 2: every card,
 html:not([data-theme="dark"]) every accent ============ */
 /* header: warm porcelain instead of stark white */
 header{background:rgba(252,251,246,.95)!important}
-/* what-we-do cards: powder blue wash */,
+/* what-we-do cards: powder blue wash */
 html:not([data-theme="dark"]) .cell{background:linear-gradient(180deg,#FFFFFF 0%,#EFF5FD 100%)!important;border:1px solid rgba(30,58,110,.12)!important}
-/* how-it-works steps: mint wash */,
+/* how-it-works steps: mint wash */
 html:not([data-theme="dark"]) .step{background:linear-gradient(180deg,#FFFFFF 0%,#F1F9EC 100%)!important;border:1px solid rgba(46,143,28,.14)!important}
 html:not([data-theme="dark"]) /* vision cards: each letter's pastel wash,
 html:not([data-theme="dark"]) soft borders,
@@ -898,22 +911,22 @@ html:not([data-theme="dark"]) .acr:nth-child(1) b{color:#C4544A!important}
 html:not([data-theme="dark"]) .acr:nth-child(2) b{color:#5E9E4A!important}
 html:not([data-theme="dark"]) .acr:nth-child(3) b{color:#5B84C9!important}
 html:not([data-theme="dark"]) .acr:nth-child(4) b{color:#9A6FC7!important}
-/* story card: cream wash */,
+/* story card: cream wash */
 html:not([data-theme="dark"]) .about-story{background:linear-gradient(180deg,#FFFFFF,#FAF7EE)!important}
-/* group labels softened */,
+/* group labels softened */
 html:not([data-theme="dark"]) .grp,
 html:not([data-theme="dark"]) .grp[data-i18n="off.g1"],
 html:not([data-theme="dark"]) .grp[data-i18n="off.g2"]{color:var(--pounamu)!important}
-/* rainbow rules -> pastel rainbow */,
+/* rainbow rules -> pastel rainbow */
 html:not([data-theme="dark"]) #about h2::after{background:linear-gradient(90deg,#F0B4AC,#F2E3A8,#BCE2A8,#B2D0F2,#D5BBEF)!important}
 html:not([data-theme="dark"]) footer{border-image:linear-gradient(90deg,#F0B4AC,#F2E3A8,#BCE2A8,#B2D0F2,#D5BBEF) 1!important}
-/* docket: selected chip + stat in pastel green */,
+/* docket: selected chip + stat in pastel green */
 html:not([data-theme="dark"]) .chip[aria-pressed="true"]{background:#BFE7A0!important;border-color:#9CD57E!important;color:#1E4A12!important}
 html:not([data-theme="dark"]) #monthline{color:#5E9E4A!important}
 html:not([data-theme="dark"]) .docket-num{color:#5E9E4A!important}
-/* theme toggle pastel */,
+/* theme toggle pastel */
 html:not([data-theme="dark"]) .hdr-theme{background:linear-gradient(180deg,#D8DCF2,#B9BFE8)!important;color:#2A3050!important}
-/* section shells: whisper of cream */,
+/* section shells: whisper of cream */
 html:not([data-theme="dark"]) main section{background:linear-gradient(180deg,#FFFFFF 0%,#F6F4EC 100%)}
 
 /* dark mode: living sky in deep tones */
@@ -1230,7 +1243,7 @@ html,body{overflow-x:hidden}
 @media(max-width:760px){
   .bar{padding-left:.7rem!important;padding-right:.7rem!important;gap:.3rem}
   .bar-right{gap:.28rem;margin-left:auto;min-width:0;flex:0 1 auto}
-    .langselect{max-width:88px;font-size:.72rem;padding:.32em 1.5em .32em .55em;
+    .langselect{font-size:.72rem;padding:.32em 1.5em .32em .55em;
     background-position:right .45em center!important}
   .hdr-ico{width:30px!important;height:30px!important;margin-right:0}
   .hdr-ico svg{width:14px!important;height:14px!important}
@@ -1238,7 +1251,7 @@ html,body{overflow-x:hidden}
   .menu-btn{margin-left:.15rem;flex:0 0 auto}
 }
 @media(max-width:380px){
-  .langselect{max-width:74px;font-size:.68rem}
+  .langselect{font-size:.68rem}
   .hdr-ico{width:28px!important;height:28px!important}
   .mark img{height:23px}
 }
@@ -1289,9 +1302,9 @@ html[data-theme="dark"] .contact h2{color:#FFFFFF!important}
 @media(max-width:939px){
   #themebtn{display:none!important}
   .bar-right{gap:.4rem}
-  .langselect{max-width:110px;font-size:.78rem}
+  .langselect{font-size:.78rem}
 }
-@media(max-width:400px){.langselect{max-width:96px}}
+@media(max-width:400px){.langselect{}}
 .drawer-theme{display:flex;align-items:center;gap:.6rem;width:100%;margin-top:.8rem;
   padding:.72rem .9rem;border-radius:12px;cursor:pointer;font:inherit;font-weight:700;font-size:.95rem;
   background:linear-gradient(180deg,#D3EFB9,#A9D98C);color:#274F16;border:0;
@@ -1315,13 +1328,13 @@ html[data-theme="dark"] .contact h2{color:#FFFFFF!important}
   .bar-right .navlinks{gap:1rem;padding:.28rem .8rem;margin:0 .3rem}
   .bar-right .navlinks a{font-size:.9rem}
   .bar-right .nav-contact{margin:0 .3rem 0 0;padding:.48em .95em!important;font-size:.84rem!important}
-  .langselect{max-width:132px}
+  .langselect{}
 }
 @media(min-width:940px) and (max-width:1240px){
   .bar-right .navlinks{gap:.7rem;padding:.26rem .62rem}
   .bar-right .navlinks a{font-size:.83rem}
   .bar-right .nav-contact{font-size:.78rem!important;padding:.44em .78em!important}
-  .langselect{max-width:104px;font-size:.76rem}
+  .langselect{font-size:.76rem}
   .hdr-ico{width:34px;height:34px}
   .hdr-ico svg{width:16px;height:16px}
   .mark img{height:34px}
@@ -1423,7 +1436,7 @@ html[data-theme="dark"] .menu-btn{color:#E9EDF9}
   .bar-right .navlinks{display:none!important}      /* links live in the menu at this width */
   .menu-btn{display:inline-flex!important}
   .bar-right .nav-contact{margin-left:auto!important;font-size:.78rem!important;padding:.42em .8em!important}
-  .langselect{max-width:104px;font-size:.76rem}
+  .langselect{font-size:.76rem}
   .mark img{height:32px}
 }
 
@@ -1449,7 +1462,7 @@ a.hdr-call::after{display:none!important}
   a.hdr-call{height:30px!important;padding:0 .55em 0 .48em!important}
   a.hdr-call span.callnum{font-size:.67rem!important}
   .mark img{height:24px}
-  .langselect{max-width:78px;font-size:.68rem}
+  .langselect{font-size:.68rem}
   .hdr-ico[href^="mailto"]{width:28px!important;height:28px!important}
 }
 
@@ -1705,8 +1718,8 @@ html:not([data-theme="dark"]).sky-dawn .contact{
   .hdr-ico,.hdr-ico.hdr-theme{width:36px!important;border-radius:50%!important;padding:0!important}
   .hdr-tel,.bar-right .nav-contact{display:inline-flex!important;align-items:center!important;
     padding:0 1em!important;border-radius:999px!important;font-size:.82rem!important;line-height:1!important}
-  .langselect{padding:0 1.9em 0 .8em!important;border-radius:999px!important;font-size:.8rem!important;
-    line-height:1!important;background-position:right .65em center!important}
+  .langselect{padding:.34em 1.9em .34em .8em!important;border-radius:999px!important;font-size:.8rem!important;
+    line-height:1.5!important;background-position:right .65em center!important}
   .bar-right .navlinks{display:inline-flex!important;align-items:center!important;
     padding:0 .9rem!important;border-radius:999px!important}
   .bar-right>*{align-self:center!important}
@@ -1714,8 +1727,8 @@ html:not([data-theme="dark"]).sky-dawn .contact{
 @media(max-width:1023px){
   .hdr-ico,.hdr-ico.hdr-theme,a.hdr-call{width:32px!important;height:32px!important;
     border-radius:50%!important;padding:0!important;box-sizing:border-box}
-  .langselect{height:32px!important;padding:0 1.7em 0 .6em!important;border-radius:999px!important;
-    line-height:1!important;box-sizing:border-box}
+  .langselect{min-height:32px!important;height:auto!important;padding:.3em 1.7em .3em .6em!important;
+    border-radius:999px!important;line-height:1.5!important;box-sizing:border-box}
   .menu-btn{width:32px!important;height:32px!important}
   .bar-right>*{align-self:center!important}
 }
@@ -2573,10 +2586,9 @@ html[data-theme="dark"] #book .field-err{color:#FF9B8F}
 .hero .hero-copy{position:relative}
 .hero .hero-copy::before{content:"";position:absolute;inset:-14px -18px -10px -18px;z-index:-1;
   border-radius:22px;pointer-events:none}
-html:not([data-theme="dark"]):not(.sky-night) .hero .hero-copy::before{
+html:not([data-theme="dark"]) .hero .hero-copy::before{
   background:radial-gradient(120% 90% at 30% 40%,rgba(255,255,255,.5),rgba(255,255,255,.18) 55%,transparent 78%)}
-html[data-theme="dark"] .hero .hero-copy::before,
-html.sky-night .hero .hero-copy::before{
+html[data-theme="dark"] .hero .hero-copy::before{
   background:radial-gradient(120% 90% at 30% 40%,rgba(10,14,30,.42),rgba(10,14,30,.18) 55%,transparent 78%)}
 /* the sun never sits over the docket either */
 @media(min-width:940px){.wxfx.sun::before{opacity:.8!important}}
@@ -2611,7 +2623,7 @@ html.sky-night .hero .hero-copy::before{
   width:170px!important;height:170px!important;opacity:.6!important}
 /* the copy column masks anything drifting behind it */
 .hero .hero-copy::before{inset:-18px -22px -14px -22px!important}
-html:not([data-theme="dark"]):not(.sky-night) .hero .hero-copy::before{
+html:not([data-theme="dark"]) .hero .hero-copy::before{
   background:radial-gradient(130% 100% at 26% 42%,rgba(255,255,255,.62),rgba(255,255,255,.26) 58%,transparent 82%)!important}
 
 /* dawn in light mode: deeper sky, dimmer sun */
@@ -2715,6 +2727,147 @@ html[data-theme="dark"] #about h2{color:var(--ink)!important}
 .why-new h3,
 html:not([data-theme="dark"]) .why-new h3,
 html[data-theme="dark"] .why-new h3{color:var(--ink)!important}
+
+/* ---- the greeting at night, in light mode ----
+   Light mode still uses a near-black sky after dark (#0A0E1E). The deep gold
+   chosen for the pale daytime skies reads at 2.4:1 there, so night gets the
+   bright gold back, which is 12:1 on that background. ---- */
+html:not([data-theme="dark"]).sky-night .greet{color:#FFC83D!important}
+
+/* ---- light mode after dark ----
+   Light mode still paints a dark page at night (--pagebg:#131834), and the
+   What we do section is deliberately transparent, so its dark ink was sitting
+   on a dark page. Give that one section light text while the sky is night.
+   The cards inside keep their own white background and dark text. ---- */
+html:not([data-theme="dark"]).sky-night #automate h2,
+html:not([data-theme="dark"]).sky-night #automate .eyebrow,
+html:not([data-theme="dark"]).sky-night #automate .grp{
+  color:#EDEFF8!important;
+}
+html:not([data-theme="dark"]).sky-night #automate .lead,
+html:not([data-theme="dark"]).sky-night #automate > .wrap > p{
+  color:rgba(237,239,248,.82)!important;
+}
+/* the cards are light, so everything inside them stays dark */
+html:not([data-theme="dark"]).sky-night #automate .cell h3,
+html:not([data-theme="dark"]).sky-night #automate .cell b{
+  color:#101321!important;
+}
+html:not([data-theme="dark"]).sky-night #automate .cell p,
+html:not([data-theme="dark"]).sky-night #automate .cell{
+  color:rgba(16,19,33,.78)!important;
+}
+
+/* ---- the language control fits its own text ----
+   Devanagari and Gurmukhi carry marks above the letters, and a 1x line-height
+   with a fixed height was slicing the tops off हिन्दी and ਪੰਜਾਬੀ. Eight pixel
+   width caps were also cutting "Te Reo Māori" short. Size to the content. ---- */
+.langselect{
+  /* A flex item shrinks below its content unless told otherwise, which is why
+     "Te Reo Māori" was still being cut. Hold the content width and refuse to
+     shrink. max-content on a select is the width of its longest option, so the
+     control is the same size whichever language is showing. */
+  flex:0 0 auto!important;
+  width:auto!important;
+  min-width:max-content!important;
+  max-width:none!important;
+  height:auto!important;
+  min-height:34px;
+  line-height:1.55!important;
+  padding-top:.32em!important;
+  padding-bottom:.32em!important;
+  white-space:nowrap;
+  text-overflow:clip;
+  overflow:visible;
+  /* the Noto faces carry the Devanagari and Gurmukhi glyphs */
+  font-family:var(--body);
+}
+.langselect option{
+  font-family:var(--body);
+  line-height:1.6;
+  padding:4px 6px;
+}
+.langwrap{
+  flex:0 0 auto!important;
+  min-width:max-content;
+  max-width:none;
+}
+/* the header may run out of room before the language name does, so let the
+   nav links give way first rather than squeezing the control */
+.bar-right .navlinks{min-width:0}
+.bar-right{gap:.4rem}
+
+/* ---- Light and Dark side by side in the menu ---- */
+.theme-pair{
+  display:flex; width:100%; gap:3px; margin-top:.9rem; padding:3px;
+  background:rgba(238,241,236,.10); border:1px solid rgba(238,241,236,.20);
+  border-radius:999px;
+}
+.theme-pair button{
+  flex:1 1 0; display:inline-flex; align-items:center; justify-content:center; gap:.45em;
+  background:none; border:0; cursor:pointer; white-space:nowrap;
+  color:rgba(238,241,236,.72); border-radius:999px;
+  padding:.62em .6em; font:inherit; font-size:.92rem; font-weight:600; line-height:1.4;
+}
+.theme-pair button svg{flex:0 0 auto}
+.theme-pair button:hover{color:var(--paper)}
+.theme-pair button[aria-pressed="true"]{
+  background:var(--paper); color:var(--ink); font-weight:700;
+}
+html[data-theme="dark"] .theme-pair button[aria-pressed="true"]{
+  background:#E9EDF9; color:#14172B;
+}
+html:not([data-theme="dark"]) .theme-pair{
+  background:rgba(16,19,33,.07); border-color:rgba(16,19,33,.16);
+}
+html:not([data-theme="dark"]) .theme-pair button{color:rgba(16,19,33,.62)}
+html:not([data-theme="dark"]) .theme-pair button:hover{color:#14172B}
+/* In light mode the menu is white, so a pale "selected" fill was invisible
+   against it — 1.05:1. Fill it dark instead. */
+html:not([data-theme="dark"]) .theme-pair button[aria-pressed="true"]{
+  background:#14172B!important;
+  color:#FFFFFF!important;
+  font-weight:700;
+}
+
+/* ---- add to home screen ---- */
+.installbtn{
+  display:flex; align-items:center; justify-content:center; gap:.5em;
+  width:100%; margin-top:.9rem; padding:.72em 1em;
+  background:var(--pounamu); color:#fff; border:0; border-radius:12px;
+  font:inherit; font-size:.95rem; font-weight:600; cursor:pointer;
+}
+.installbtn[hidden]{display:none}
+.installbtn:hover{filter:brightness(1.08)}
+.installtip{
+  margin:.55rem 0 0; padding:.7em .9em; border-radius:10px;
+  background:rgba(238,241,236,.10); font-size:.86rem; line-height:1.5;
+}
+.installtip[hidden]{display:none}
+html:not([data-theme="dark"]) .installtip{background:rgba(16,19,33,.07)}
+
+/* ---- the update prompt ---- */
+.updatebar{
+  position:fixed; left:50%; transform:translateX(-50%) translateY(140%);
+  bottom:calc(env(safe-area-inset-bottom,0px) + 16px); z-index:300;
+  display:flex; align-items:center; gap:12px;
+  max-width:min(92vw,440px); padding:11px 12px 11px 16px;
+  border-radius:999px; background:#14172B; color:#fff;
+  font-size:.88rem; box-shadow:0 18px 40px -14px rgba(0,0,0,.6);
+  transition:transform .28s ease;
+}
+.updatebar.on{transform:translateX(-50%) translateY(0)}
+.updatebar span{flex:1 1 auto; min-width:0}
+.updatebar button{
+  flex:0 0 auto; border:0; cursor:pointer; font:inherit; font-weight:700;
+  background:#8FE24A; color:#0E2B00; border-radius:999px; padding:.42em .95em;
+}
+.updatebar #updatelater{
+  background:none; color:rgba(255,255,255,.6); font-size:1.1rem;
+  font-weight:400; padding:0 .35em;
+}
+.updatebar #updatelater:hover{color:#fff}
+@media(prefers-reduced-motion:reduce){.updatebar{transition:none}}
 </style>
 <script>
 /* Theme is decided before first paint, so the page never flashes the wrong one.
@@ -2776,9 +2929,17 @@ html[data-theme="dark"] .why-new h3{color:var(--ink)!important}
     <a href="#about" data-i18n="nav.about">About us</a>
     <a href="#faq" data-i18n="nav.faq">Questions</a>
     <a class="btn btn--fill nav-contact" href="#contact" data-i18n="nav.contact">Contact us</a>
-    <button class="drawer-theme" id="themebtn2" type="button">
-      <span class="dt-ico" aria-hidden="true"></span><span data-i18n="theme.t">Light / dark mode</span>
+    <button type="button" class="installbtn" id="installbtn" hidden>
+      <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7.5 10.5 12 15l4.5-4.5M4 20h16"/></svg>
+      <span>Add to home screen</span>
     </button>
+    <p class="installtip" id="installtip" hidden>
+      Tap the Share button in Safari, then choose <b>Add to Home Screen</b>.
+    </p>
+    <div class="theme-pair" id="themepair" role="group" aria-label="Light or dark mode">
+      <button type="button" data-settheme="light" aria-pressed="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.5M12 18.9v2.5M2.6 12h2.5M18.9 12h2.5M5 5l1.8 1.8M17.2 17.2 19 19M19 5l-1.8 1.8M6.8 17.2 5 19"/></svg><span>Light</span></button>
+      <button type="button" data-settheme="dark" aria-pressed="false"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 1 1 9.5 3.5a7 7 0 0 0 11 11z"/></svg><span>Dark</span></button>
+    </div>
   </div>
 </header>
 
@@ -2790,6 +2951,7 @@ html[data-theme="dark"] .why-new h3{color:var(--ink)!important}
     <div class="wrap">
       <div class="hero-copy">
         <p class="greet" id="greet" aria-live="polite"></p>
+        
         <p class="wxline" id="wxline" hidden></p>
         <h1 data-i18n="hero.h1">We solve your operational headaches
 with easy-to-use AI.</h1>
@@ -3100,7 +3262,7 @@ with easy-to-use AI.</h1>
       </nav>
     </div>
     <p class="foot-fine foot-note" data-i18n="foot.fine">© 2026 Ambs Solutions. All rights reserved. Translations are provided for accessibility and should be confirmed with a native speaker before publication — te reo Māori content in particular should be reviewed by a qualified translator.</p>
-    <!-- build 203 -->
+    <!-- build 216 -->
   </div>
 </footer>
 
@@ -3559,6 +3721,25 @@ document.querySelectorAll(".langpills button").forEach(b=>b.addEventListener("cl
   applyLang(b.dataset.lang);
   try{ sessionStorage.setItem("ambs:lang",b.dataset.lang); }catch(err){}
 }));
+(function(){
+  var sel=document.getElementById("langselect");
+  if(!sel) return;
+  var byPointer=false;
+  sel.addEventListener("pointerdown",function(){ byPointer=true; });
+  sel.addEventListener("mousedown",function(){ byPointer=true; });
+  sel.addEventListener("touchstart",function(){ byPointer=true; },{passive:true});
+  sel.addEventListener("keydown",function(){ byPointer=false; sel.classList.remove("pointer-picked"); });
+  sel.addEventListener("change",function(){
+    if(!byPointer) return;
+    sel.classList.add("pointer-picked");
+    sel.blur();
+    byPointer=false;
+  });
+  sel.addEventListener("blur",function(){
+    window.setTimeout(function(){ sel.classList.remove("pointer-picked"); },0);
+  });
+})();
+
 document.getElementById("langselect").addEventListener("change",e=>{
   applyLang(e.target.value);
   try{ sessionStorage.setItem("ambs:lang",e.target.value); }catch(err){}
@@ -3918,6 +4099,8 @@ if("IntersectionObserver" in window && !reduced){
     }).catch(weather);
   }
   sky();mood(0);locate();
+
+
   setInterval(sky,60000);
   setInterval(weather,1800000);
 })();
@@ -3968,15 +4151,154 @@ if("IntersectionObserver" in window && !reduced){
   }
 })();
 
-/* drawer theme switch mirrors the header one */
+/* Installable on a phone, and kept up to date once it is.
+
+   Updating: version.json holds the build number and is the only thing to bump
+   on a deploy. The page reads it on load and remembers it, then re-reads it
+   when you come back to the app and every half hour. A different number means
+   a new deploy, so we tell the service worker to fetch itself again and offer
+   a one-tap refresh. Ignore the offer and it lands next time the app opens,
+   because a waiting worker activates once every tab is closed. */
 (function(){
-  const main=document.getElementById("themebtn"),alt=document.getElementById("themebtn2");
-  if(!main||!alt)return;
-  const ico=alt.querySelector(".dt-ico");
-  const sync=()=>{if(ico)ico.innerHTML=main.innerHTML;};
-  sync();
-  alt.addEventListener("click",()=>{main.click();setTimeout(sync,0);});
-  new MutationObserver(sync).observe(main,{childList:true,subtree:true});
+  var VERSION_URL="/version.json";
+  var loadedBuild=null;
+  var reg=null;
+  var reloading=false;
+
+  function readVersion(){
+    return fetch(VERSION_URL+"?t="+Date.now(),{cache:"no-store"})
+      .then(function(r){ return r.json(); })
+      .then(function(d){ return String(d.build||""); })
+      .catch(function(){ return ""; });
+  }
+
+  function bar(){
+    var b=document.getElementById("updatebar");
+    if(b) return b;
+    b=document.createElement("div");
+    b.id="updatebar";
+    b.className="updatebar";
+    b.innerHTML='<span>A newer version is ready.</span>'+
+      '<button type="button" id="updatego">Refresh</button>'+
+      '<button type="button" id="updatelater" aria-label="Not now">&times;</button>';
+    document.body.appendChild(b);
+    b.querySelector("#updatego").addEventListener("click",applyUpdate);
+    b.querySelector("#updatelater").addEventListener("click",function(){ b.remove(); });
+    return b;
+  }
+
+  function offer(){
+    if(reloading) return;
+    bar().classList.add("on");
+  }
+
+  function applyUpdate(){
+    reloading=true;
+    var waiting=reg&&(reg.waiting||reg.installing);
+    if(waiting){ waiting.postMessage("SKIP_WAITING"); }
+    /* controllerchange fires when the new worker takes over; if there is no
+       worker at all, just reload */
+    window.setTimeout(function(){ location.reload(); },600);
+  }
+
+  function checkForUpdate(){
+    readVersion().then(function(build){
+      if(!build) return;
+      if(loadedBuild===null){ loadedBuild=build; return; }
+      if(build!==loadedBuild){
+        if(reg) reg.update().catch(function(){});
+        offer();
+      }
+    });
+  }
+
+  if("serviceWorker" in navigator && location.protocol!=="file:"){
+    window.addEventListener("load",function(){
+      navigator.serviceWorker.register("/sw.js",{updateViaCache:"none"})
+        .then(function(r){
+          reg=r;
+          /* a worker already waiting means an update arrived last visit */
+          if(r.waiting && navigator.serviceWorker.controller) offer();
+          r.addEventListener("updatefound",function(){
+            var nw=r.installing;
+            if(!nw) return;
+            nw.addEventListener("statechange",function(){
+              if(nw.state==="installed" && navigator.serviceWorker.controller) offer();
+            });
+          });
+        })
+        .catch(function(){});
+
+      navigator.serviceWorker.addEventListener("controllerchange",function(){
+        if(reloading) return;
+        reloading=true;
+        location.reload();
+      });
+    });
+  }
+
+  /* first read on load, then whenever the app is reopened, then hourly-ish */
+  readVersion().then(function(b){ if(b) loadedBuild=b; });
+  document.addEventListener("visibilitychange",function(){
+    if(document.visibilityState==="visible"){
+      if(reg) reg.update().catch(function(){});
+      checkForUpdate();
+    }
+  });
+  window.setInterval(checkForUpdate,30*60*1000);
+  window.__appBuild=function(){ return loadedBuild; };
+
+  /* ---- add to home screen ---- */
+  var btn=document.getElementById("installbtn");
+  var tip=document.getElementById("installtip");
+  if(!btn) return;
+  var deferred=null;
+  var standalone=(window.matchMedia&&window.matchMedia("(display-mode: standalone)").matches)
+    || window.navigator.standalone===true;
+  var ios=/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream;
+
+  window.addEventListener("beforeinstallprompt",function(e){
+    e.preventDefault();
+    deferred=e;
+    if(!standalone) btn.hidden=false;
+  });
+  window.addEventListener("appinstalled",function(){ btn.hidden=true; if(tip) tip.hidden=true; });
+  if(ios&&!standalone) btn.hidden=false;
+  btn.addEventListener("click",function(){
+    if(deferred){
+      deferred.prompt();
+      deferred.userChoice.then(function(){ deferred=null; btn.hidden=true; });
+      return;
+    }
+    if(tip) tip.hidden=!tip.hidden;
+  });
+})();
+
+/* The menu shows Light and Dark side by side, with the one in use filled in,
+   so there is no guessing which mode you are on. It drives the same setting
+   as the toggle in the header. */
+(function(){
+  const main=document.getElementById("themebtn");
+  const pair=document.getElementById("themepair");
+  if(!pair) return;
+  const btns=pair.querySelectorAll("[data-settheme]");
+  function mark(){
+    const t=document.documentElement.dataset.theme||"light";
+    for(let i=0;i<btns.length;i++){
+      btns[i].setAttribute("aria-pressed", btns[i].dataset.settheme===t ? "true":"false");
+    }
+  }
+  mark();
+  pair.addEventListener("click",function(e){
+    const b=e.target.closest("[data-settheme]");
+    if(!b) return;
+    if((document.documentElement.dataset.theme||"light")!==b.dataset.settheme && main) main.click();
+    mark();
+  });
+  /* keep it right if the header toggle is used instead. The observer alone
+     is asynchronous, so listen to the toggle directly as well. */
+  if(main) main.addEventListener("click",function(){ mark(); });
+  new MutationObserver(mark).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
 })();
 
 
@@ -3988,6 +4310,9 @@ if("IntersectionObserver" in window && !reduced){
   cv.className="rain-canvas";cv.setAttribute("aria-hidden","true");
   hero.appendChild(cv);
   const ctx=cv.getContext("2d");
+  /* a browser that cannot give a 2d context would otherwise take the rest
+     of this block down with it */
+  if(!ctx){ cv.remove(); return; }
   let w=0,h=0,dpr=Math.min(window.devicePixelRatio||1,2),drops=[],raf=null,running=false;
   function size(){
     const r=hero.getBoundingClientRect();
